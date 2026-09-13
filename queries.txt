@@ -1,0 +1,47 @@
+?- father(shaker, seham).
+true.
+ 
+?- father(waleed, khalid).
+true.
+ 
+?- father(shaker, rana).
+false.
+ 
+?- father(seham, rana).
+false.
+ 
+?- mother(aljawhara, seham).
+true.
+ 
+?- mother(seham, khalid).
+true.
+ 
+?- mother(waleed, khalid).
+false.
+ 
+?- mother(reem, rana).
+false.
+ 
+?- sister(rana, khalid).
+true.
+ 
+?- sister(reem, abdullah).
+true.
+ 
+?- sister(seham, rana).
+false.
+ 
+?- sister(ghaim, rana).
+false.
+ 
+?- brother(khalid, rana).
+true.
+ 
+?- brother(abdullah, reem).
+true.
+ 
+?- brother(waleed, khalid).
+false.
+ 
+?- brother(khalid, ghaim).
+false.

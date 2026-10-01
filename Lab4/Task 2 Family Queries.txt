@@ -1,0 +1,37 @@
+64 ?- female(X).
+X = sara ;
+X = nora.
+
+X is a variable, so Prolog looks for every fact female(...) in the file. It finds sara first, and after pressing ; it gives nora. These are all the females.
+
+
+65 ?- male(_).
+true .
+
+The underscore means any male, and I don't need to know who. Prolog finds the first fact male(ali), so the answer is true. There is at least one male.
+
+
+66 ?- parent(GP, P), parent(P, faisal).
+GP = ali,
+P = muhammad .
+
+I used the same variable P in both goals, so it has to be the same person. P is a parent of faisal, and GP is a parent of that person. muhammad is the parent of faisal and ali is the parent of muhammad, so ali is the grandparent of faisal.
+
+
+67 ?- parent(ahmad, D), female(D).
+D = sara ;
+D = nora .
+
+D must be a child of ahmad and also female. ahmad has three children: sara, nora and khan. khan is male, so only sara and nora are the daughters.
+
+
+68 ?- parent(P, ahmad), parent(P, muhammad).
+P = ali.
+
+The same P has to be the parent of ahmad and of muhammad. ali is the parent of both, so yes, they have a common parent.
+
+
+69 ?- parent(P, khan), parent(P, nora), male(khan), khan \= nora.
+P = ahmad.
+
+Khan and nora must have the same parent, and khan must be male. ahmad is the parent of both. The last part checks that khan and nora are not the same person. All the goals are true, so khan is the brother of nora.

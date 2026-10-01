@@ -1,0 +1,61 @@
+52 ?- house = house.
+true.
+
+Both sides are the same atom, so they unify.
+
+
+53 ?- house = abc.
+false.
+
+house and abc are two different atoms. A constant only unifies with itself.
+
+
+54 ?- edge(a,b) = edge(C,b).
+C = a.
+
+Both have the name edge and two arguments. The second arguments are both b. The first one is a against C, so C becomes a.
+
+
+55 ?- edge(a,d) = edge(C,B).
+C = a,
+B = d.
+
+Same name and same number of arguments. C takes the value a and B takes the value d.
+
+
+56 ?- edge(C,B) = edge(a,d).
+C = a,
+B = d.
+
+It is the same as the previous query but with the sides swapped. The result is the same because unification works both ways.
+
+
+57 ?- edge(A,f(g,h)) = edge(a,B).
+A = a,
+B = f(g, h).
+
+A gets a. B is a variable, so it can take a whole structure, and here it takes f(g,h).
+
+
+58 ?- edge(A,A) = edge(b,c).
+false.
+
+The first A makes A = b, but the second A would need A = c. One variable can't be b and c at the same time, and b and c are different constants.
+
+
+59 ?- edge(A,A) = edge(b,b).
+A = b.
+
+Both places ask for b, so A = b works in both.
+
+
+60 ?- A = B, B = f.
+A = B, B = f.
+
+First A and B are linked together. Then B is set to f, so A is also f.
+
+
+61 ?- A = B, B = f, A = e.
+false.
+
+After the first two goals A is already f. Then A = e tries to unify f with e, which are different constants, so it fails.
